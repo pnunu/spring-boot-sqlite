@@ -3,7 +3,4 @@
 
 - spring boot 
 - SqLite
-- MyBatis
-- Swagger2
-- Lombok
 
