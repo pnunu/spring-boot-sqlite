@@ -1,7 +1,5 @@
 package pnunu.pool;
 
-import org.springframework.context.annotation.Lazy;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -10,7 +8,6 @@ import java.sql.SQLException;
  * @Date: 2018/11/1 16:05
  * @Description: 连接池 工具类
  */
-@Lazy
 public class PoolUtil implements Pool {
     /**
      * 此处可以设置成 读取 配置文件的方式

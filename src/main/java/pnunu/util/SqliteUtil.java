@@ -15,7 +15,7 @@ import java.util.List;
 @Component
 public class SqliteUtil {
 
-    public int insert(List<MapModel> models) throws Exception {
+    synchronized public int insert(List<MapModel> models) throws Exception {
         byte[] b = null;
         Connection conn = getConnection(models.get(0).getDbName());
         for (int i = 0; i < models.size(); i++) {
@@ -69,7 +69,7 @@ public class SqliteUtil {
     }
 
 
-    public byte[] download(MapModel mapModel) throws Exception {
+    synchronized public byte[] download(MapModel mapModel) throws Exception {
         String filepath = getFilePath(mapModel);
         if (new File(filepath).exists()) {
             return readFile(filepath);
