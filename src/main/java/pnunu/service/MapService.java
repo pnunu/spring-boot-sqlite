@@ -56,13 +56,13 @@ public class MapService {
 //                        FutureTask<Integer> task = new FutureTask<>(sqliteCallable);
 //                        tasks.put(fx.getName() + "-" + fy.getName(), task);
 //                        if (!executor.isShutdown()) {
-//                            executor.submit(demotask);
+//                            executor.submit(task);
 //                        }
                     }
                 }
             }
         }
-        // 关闭线程池
+//        // 关闭线程池
 //        executor.shutdown();
     }
 

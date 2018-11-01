@@ -162,6 +162,16 @@ public class SqliteUtil {
         }
         return conn;
     }
-
+//    public static Connection getConnection(String type) {
+//        Connection conn = null;
+//        try {
+//            conn = DynamicPoolUtil.getConnection(type, "jdbc:sqlite:db/" + type + ".db");
+//            System.out.println("jdbc:sqlite:db/" + type + ".db");
+//            conn.setAutoCommit(false);//关闭自动提交，可以实现多次添加数据，一次提交，提高效率（对于插入一条数据可以不关上此功能）
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return conn;
+//    }
 
 }
