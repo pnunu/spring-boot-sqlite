@@ -35,11 +35,20 @@ public class MapController {
     public BufferedImage getImage(@PathVariable("type") String type, @PathVariable("x") int x,
                                   @PathVariable("y") int y, @PathVariable("z") String z) throws Exception {
         MapModel model = new MapModel(type, x, y, Integer.valueOf(z.substring(0, z.indexOf("."))));
-        BufferedImage image = ImageIO.read(new FileInputStream(new File(SqliteUtil.getFilePath(model))));
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(new FileInputStream(new File(SqliteUtil.getFilePath(model))));
+        } catch (Exception e) {
+        }
         if (image == null) {
             mapService.map(model);
         }
-        return ImageIO.read(new FileInputStream(new File(SqliteUtil.getFilePath(model))));
+        try {
+            image = ImageIO.read(new FileInputStream(new File(SqliteUtil.getFilePath(model))));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return image;
     }
 
     @ResponseBody
